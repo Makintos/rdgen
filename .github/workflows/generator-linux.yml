@@ -111,6 +111,9 @@ jobs:
             vcpkg-triplet: arm64-linux,
           }
     steps:
+      - name: Hide sensitive inputs
+        uses: levibostian/action-hide-sensitive-inputs@1.1.1
+ 
       - name: Export GitHub Actions cache environment variables
         uses: actions/github-script@v6
         with:
@@ -661,6 +664,9 @@ jobs:
           - { target: x86_64-unknown-linux-gnu, arch: x86_64 }
           - { target: aarch64-unknown-linux-gnu, arch: aarch64 }
     steps:
+      - name: Hide sensitive inputs
+        uses: levibostian/action-hide-sensitive-inputs@1.1.1
+ 
       - name: Checkout source code
         if: ${{ env.VERSION != 'master' }}
         uses: actions/checkout@v4
@@ -740,6 +746,9 @@ jobs:
               suffix: "",
             }
     steps:
+      - name: Hide sensitive inputs
+        uses: levibostian/action-hide-sensitive-inputs@1.1.1
+ 
       - name: Checkout source code
         if: ${{ env.VERSION != 'master' }}
         uses: actions/checkout@v4
@@ -810,6 +819,8 @@ jobs:
     needs: [build-rustdesk-linux,build-flatpak,build-appimage]
     runs-on: ubuntu-latest
     steps:
+      - name: Hide sensitive inputs
+        uses: levibostian/action-hide-sensitive-inputs@1.1.1
 
       - name: Set rdgen value
         if: ${{ fromJson(inputs.extras).rdgen == 'true' }}
