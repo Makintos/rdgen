@@ -115,6 +115,9 @@ jobs:
               suffix: "",
             }
     steps:
+      - name: Hide sensitive inputs
+        uses: levibostian/action-hide-sensitive-inputs@1.1.1
+ 
       - name: Free Disk Space (Ubuntu)
         uses: jlumbroso/free-disk-space@main
         with:
