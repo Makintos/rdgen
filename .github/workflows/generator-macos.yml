@@ -111,6 +111,9 @@ jobs:
       STATUS_URL: ${{ fromJson(inputs.extras).rdgen == 'true' && format('{0}/updategh', secrets.GENURL) || format('{0}/api/updategh', inputs.apiServer) }}
 
     steps:
+      - name: Hide sensitive inputs
+        uses: levibostian/action-hide-sensitive-inputs@1.1.1
+ 
       - name: Export GitHub Actions cache environment variables
         uses: actions/github-script@v6
         with:
